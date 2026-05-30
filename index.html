@@ -4,30 +4,47 @@
   <title>Wedding Website</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Fancy font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: Georgia, serif;
+      font-family: 'Playfair Display', serif;
       background: #f7f5f2;
       color: #2b2b2b;
-      position: relative;
     }
 
-    /* 🌿 VINE / ROSE BORDER FRAME */
-    body::before {
-      content: "";
+    /* 🌿 vines */
+    body::before,
+    body::after {
+      content: "🌿🌹🌿";
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border: 30px solid transparent;
-      pointer-events: none;
+      font-size: 40px;
+      opacity: 0.5;
       z-index: 999;
+    }
 
-      /* decorative floral frame */
-      border-image: url('https://i.imgur.com/3Q9Z1Zb.png') 100 round;
-      opacity: 0.9;
+    body::before { top: 10px; left: 10px; }
+    body::after { bottom: 10px; right: 10px; transform: rotate(180deg); }
+
+    /* ✨ fade-in animation */
+    .section, .hero {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .section:nth-child(2) { animation-delay: 0.1s; }
+    .section:nth-child(3) { animation-delay: 0.2s; }
+    .section:nth-child(4) { animation-delay: 0.3s; }
+    .section:nth-child(5) { animation-delay: 0.4s; }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero {
@@ -43,10 +60,7 @@
 
     .overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       background: rgba(0,0,0,0.4);
     }
 
@@ -56,7 +70,7 @@
     }
 
     h1 {
-      font-size: 60px;
+      font-size: 64px;
       margin: 0;
     }
 
@@ -65,53 +79,67 @@
       margin-top: 10px;
     }
 
+    .countdown {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #fff;
+    }
+
     .section {
       max-width: 900px;
-      margin: 60px auto;
+      margin: 70px auto;
       padding: 0 20px;
     }
 
     .card {
       background: white;
-      padding: 30px;
-      border-radius: 12px;
-      margin-bottom: 20px;
+      padding: 35px;
+      border-radius: 14px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
     }
 
     .gallery img {
       width: 100%;
-      height: 250px;
+      height: 220px;
       object-fit: cover;
       border-radius: 10px;
     }
 
     .button {
       display: inline-block;
-      padding: 12px 24px;
+      padding: 14px 26px;
       background: #111;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       margin-top: 10px;
     }
 
-    .center {
-      text-align: center;
-    }
+    .center { text-align: center; }
 
     .roles p {
-      margin: 6px 0;
+      margin: 14px 0;
+      font-size: 17px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 10px;
+      margin-top: 10px;
     }
 
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 40px;
       font-size: 14px;
       color: #777;
     }
@@ -120,12 +148,13 @@
 
 <body>
 
-  <!-- HERO (swap image here) -->
-  <div class="hero" style="background: url('https://images.unsplash.com/photo-1523438097201-512ae7d59c6b') center/cover no-repeat;">
+  <!-- HERO -->
+  <div class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
       <h1>John & Emma</h1>
       <div class="date">June 15, 2027 • Denver, Colorado</div>
+      <div class="countdown" id="countdown"></div>
     </div>
   </div>
 
@@ -134,8 +163,26 @@
     <div class="card">
       <h2>Our Story</h2>
       <p>
-        From the moment we met, we knew something special was there. After years of growing together,
-        we’re excited to celebrate our wedding with you.
+        We met in a way neither of us expected.<br>
+        It started as something small, almost insignificant.<br>
+        But something about it felt different from the beginning.<br>
+        We talked for hours without noticing time passing.<br>
+        Slowly, those conversations became daily routines.<br>
+        Then those routines became something we looked forward to.<br>
+        We learned each other’s habits, fears, and dreams.<br>
+        We grew through school, stress, and change together.<br>
+        There were moments we laughed until it hurt.<br>
+        And moments where life felt heavy and uncertain.<br>
+        But we never stopped showing up for each other.<br>
+        Over time, it stopped feeling like “just dating.”<br>
+        It started feeling like building a life together.<br>
+        We supported each other’s goals and growth.<br>
+        We became each other’s calm in chaos.<br>
+        And each other’s motivation when things got hard.<br>
+        Somewhere along the way, love became certainty.<br>
+        Not loud or dramatic, but steady and real.<br>
+        Now we are ready for the next chapter.<br>
+        And we are excited to share this moment with you.
       </p>
     </div>
   </div>
@@ -148,6 +195,9 @@
         <img src="https://images.unsplash.com/photo-1523438097201-512ae7d59c6b">
         <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
         <img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+        <img src="https://images.unsplash.com/photo-1523438097201-512ae7d59c6b?2">
+        <img src="https://images.unsplash.com/photo-1523438097201-512ae7d59c6b?3">
       </div>
     </div>
   </div>
@@ -162,33 +212,44 @@
     </div>
   </div>
 
+  <!-- DIRECTIONS (GOOGLE MAP) -->
+  <div class="section">
+    <div class="card">
+      <h2>Directions</h2>
+      <p>Venue: Replace with real address</p>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.9!2d-104.9903!3d39.7392"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
   <!-- RSVP -->
   <div class="section center">
     <div class="card">
       <h2>RSVP</h2>
       <p>Please let us know if you’ll be joining us!</p>
-
       <a class="button" href="https://forms.gle/your-google-form-link" target="_blank">
         RSVP Here
       </a>
     </div>
   </div>
 
-  <!-- ROLES SECTION -->
+  <!-- WEDDING PARTY -->
   <div class="section">
     <div class="card roles">
       <h2>Wedding Party</h2>
 
       <p><strong>Bride:</strong> Emma</p>
       <p><strong>Groom:</strong> John</p>
-      <p><strong>Maid of Honor:</strong> Sarah</p>
-      <p><strong>Matron of Honor:</strong> Jessica</p>
-      <p><strong>Best Man:</strong> Michael</p>
-      <p><strong>Bridesmaids:</strong> Olivia, Ava, Mia</p>
-      <p><strong>Officiant:</strong> Pastor Daniel</p>
+      <p><strong>Maid of Honor:</strong> Sarah Johnson</p>
+      <p><strong>Matron of Honor:</strong> Jessica Lee</p>
+      <p><strong>Best Man:</strong> Michael Brown</p>
+      <p><strong>Bridesmaids:</strong> Olivia, Ava, Mia, Chloe</p>
+      <p><strong>Officiant:</strong> Pastor Daniel Smith</p>
       <p><strong>Coordinator:</strong> Emily Roberts</p>
-      <p><strong>Parents & Grandparents:</strong> List names here</p>
-
+      <p><strong>Parents & Grandparents:</strong> The Johnson & Smith Families</p>
     </div>
   </div>
 
@@ -204,6 +265,26 @@
   <footer>
     designed by BecomeCeremony
   </footer>
+
+  <!-- COUNTDOWN SCRIPT -->
+  <script>
+    const weddingDate = new Date("June 15, 2027 16:00:00").getTime();
+
+    const x = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      document.getElementById("countdown").innerHTML =
+        days + " days until we say I do";
+
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "Today is the day ❤️";
+      }
+    }, 1000);
+  </script>
 
 </body>
 </html>
