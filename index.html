@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wedding Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #f7f5f2;
+      color: #2b2b2b;
+    }
+
+    .hero {
+      height: 80vh;
+      background: url('https://images.unsplash.com/photo-1523438097201-512ae7d59c6b') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 60px;
+      margin: 0;
+    }
+
+    .date {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #111;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+
+    .center {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>John & Emma</h1>
+      <div class="date">June 15, 2027 • Denver, Colorado</div>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <div class="section">
+    <div class="card">
+      <h2>Our Story</h2>
+      <p>
+        From the moment we met, we knew something special was there. After years of growing together,
+        laughing through life, and building memories, we’re excited to celebrate our wedding with you.
+      </p>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="section">
+    <div class="card">
+      <h2>Gallery</h2>
+      <div class="gallery">
+
+        <!-- Replace these image links with your own -->
+        <img src="https://images.unsplash.com/photo-1523438097201-512ae7d59c6b">
+        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf">
+        <img src="https://images.unsplash.com/photo-1523437237164-d442d57cc3c9">
+
+      </div>
+      <p style="margin-top:10px; font-size:14px; color:#777;">
+        Replace these images with your own couple photos.
+      </p>
+    </div>
+  </div>
+
+  <!-- DETAILS -->
+  <div class="section">
+    <div class="card">
+      <h2>Wedding Details</h2>
+      <p><strong>Date:</strong> June 15, 2027</p>
+      <p><strong>Location:</strong> Denver, Colorado</p>
+      <p><strong>Time:</strong> 4:00 PM</p>
+    </div>
+  </div>
+
+  <!-- RSVP -->
+  <div class="section center">
+    <div class="card">
+      <h2>RSVP</h2>
+      <p>Please let us know if you’ll be joining us!</p>
+
+      <!-- CHANGE THIS LINK -->
+      <a class="button" href="https://forms.gle/your-google-form-link" target="_blank">
+        RSVP Here
+      </a>
+
+      <p style="font-size:12px; color:#777; margin-top:10px;">
+        This button can link to Google Forms, Typeform, or anything else.
+      </p>
+    </div>
+  </div>
+
+  <!-- REGISTRY -->
+  <div class="section">
+    <div class="card center">
+      <h2>Registry</h2>
+      <p>We’re registered at:</p>
+      <p>Amazon • Target • Honeyfund</p>
+    </div>
+  </div>
+
+</body>
+</html>
